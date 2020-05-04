@@ -1,0 +1,38 @@
+{
+  "name": "games",
+  "version": "0.0.1",
+  "private": true,
+  "description": "simple games",
+  "main": "index.js",
+  "author": "Gudov Oleg",
+  "license": "ISC",
+  "repository": {
+    "url": "https://github.com/Ragnar10/"
+  },
+  "scripts": {
+    "start": "set PORT=3333 &&  react-scripts start",
+    "build": "react-scripts build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.11",
+    "cx": "^20.4.11",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
+    "react-scripts": "3.4.0",
+    "redux": "^4.0.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
