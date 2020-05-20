@@ -1,0 +1,14 @@
+.back {
+    display: inline-block;
+    padding: 5px 25px;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px #ffb6e9;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: linear-gradient(114deg, rgb(255, 167, 111) 0%, rgba(255, 71, 81, 0.99) 100%);
+    color: #f5f5ff;
+    text-shadow: 1px 1px 2px #000000;
+    text-decoration: none;
+    cursor: pointer;
+}

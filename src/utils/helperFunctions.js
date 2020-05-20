@@ -1,4 +1,4 @@
-export const shuffleFifteens = (arr) => {
+export const shuffle = (arr) => {
     let j, temp;
     for(let i = arr.length - 1; i > 0; i--){
         j = Math.floor(Math.random()*(i + 1));
@@ -16,4 +16,12 @@ export const checkFifteens = (arr) => {
         arr[9] === 10 && arr[10] === 11 && arr[11] === 12 &&
         arr[12] === 13 && arr[13] === 14 && arr[14] === 15 &&
         arr[15] === 0 ? 1 : 0;
+};
+
+export const checkCouples = (arr) => {
+    return arr.filter(item => item.isShow === true).length === 16 ? 1 : 0;
+};
+
+export const checkBalda = (arr) => {
+    return arr.filter(({letter}) => letter.length === 0).length;
 };

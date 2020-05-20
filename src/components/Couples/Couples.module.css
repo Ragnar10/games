@@ -1,0 +1,99 @@
+.wrapper {
+    display: flex;
+    width: 556px;
+    flex-direction: column;
+    margin: 20px 100px;
+}
+.header {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.restart_wrap, .counter_wrap {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+.restart_wrap {
+    justify-content: flex-start;
+}
+.restart_btn {
+    margin-left: 10px;
+    width: 50%;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px #ffb6e9;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: linear-gradient(114deg, rgba(153,34,195,1) 0%, rgba(255,75,115,0.9948354341736695) 100%);
+    color: #f5f5ff;
+    text-shadow: 1px 1px 2px #430385;
+    cursor: pointer;
+}
+.restart_btn:active {
+    box-shadow: none;
+}
+.counter {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #f1f4ff;
+    text-shadow: 1px 1px 2px #000000;
+    cursor: default;
+}
+.counter_total {
+    width: 35px;
+    display: inline-block;
+    font-size: 30px;
+    color: #e7ff31;
+    text-shadow: 1px 1px 2px #990dff;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 3px;
+    border: 5px solid rgba(255, 194, 150, 0.5);
+    border-radius: 10px;
+    position: relative;
+}
+.cell {
+    width: 125px;
+    height: 125px;
+    margin: 5px 5px;
+    padding-top: 40px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(132deg, rgba(182,254,253,1) 0%, rgba(103,255,169,1) 50%, rgba(74,255,98,1) 100%);
+    box-shadow: 2px 2px 4px rgb(207, 255, 248), -2px -2px 4px rgb(207, 255, 248);
+    color: #fff;
+    text-shadow: 0 2px 3px #000;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 45px;
+    cursor: pointer;
+}
+.cell_zero {
+    background: #fff;
+    color: #000;
+    text-shadow: 0 2px 3px #333;
+    box-shadow: none;
+    cursor: default;
+}
+.game_over {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    padding-top: 225px;
+    text-align: center;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+    color: #e7ff31;
+    text-shadow: 2px 2px 3px #990dff;
+    background-color: rgba(51, 51, 51, 0.8);
+}

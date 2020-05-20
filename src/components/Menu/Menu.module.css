@@ -1,0 +1,39 @@
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    margin: 20px auto;
+    border: 1px solid #212121;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    text-decoration: none;
+    padding: 0 10px 7px 10px;
+    box-sizing: border-box;
+}
+.link_name {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 3px #000, 0 2px 1px #ff7a01;
+}
+.bg_yellow {
+    background: #ffef0e;
+}
+.bg_red {
+    background: #e55b48;
+}
+.bg_green {
+    background: #0ea60b;
+}
+.bg_blue {
+    background: #4782ff;
+}

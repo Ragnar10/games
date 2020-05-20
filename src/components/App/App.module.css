@@ -1,1 +1,21 @@
-
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    margin: 50px auto;
+    color: #e55b48;
+    text-shadow: 0 1px 1px #000000;
+    padding: 10px;
+    font-size: 24px;
+    font-family: "Comic Sans MS", sans-serif;
+}
+.error_info {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.error_back {
+    width: 50%;
+    text-align: center;
+}

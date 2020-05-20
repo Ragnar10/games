@@ -1,37 +1,46 @@
 //CORE
 import React, { useState, useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { bounceIn } from 'react-animations';
+
+//COMPONENTS
+import ButtonBack from '../ButtonBack/ButtonBack';
 
 //STYLES
 import Styles from './Fifteens.module.css';
 
 //UTILS
-import {fifteenArray} from "../../data/fifteenArray";
-import {shuffleFifteens, checkFifteens} from "../../utils/helperFunctions";
+import {shuffle, checkFifteens} from '../../utils/helperFunctions';
 
+//DATA
+import {fifteenArray} from '../../data/fifteenArray';
 
 const Fifteens = () => {
 
     const [fifteen, setFifteen] = useState(fifteenArray);
     const [counter, setCounter] = useState(0);
+    const [animate, setAnimate] = useState('');
+
 
     useEffect(() => {
-        setFifteen([...shuffleFifteens(fifteen)]);
-        document.body.addEventListener("keydown", onKeyMove);
+        setFifteen([...shuffle(fifteen)]);
+        document.body.addEventListener('keydown', onKeyMove);
         return function() {
             document.body.removeEventListener('keydown', onKeyMove);
         };
     }, []);
 
     useEffect(() => {
-        document.body.addEventListener("keydown", onKeyMove);
+        document.body.addEventListener('keydown', onKeyMove);
         return function() {
             document.body.removeEventListener('keydown', onKeyMove);
         };
     }, [counter]);
 
     const onRestart = () => {
-        setFifteen([...shuffleFifteens(fifteen)]);
+        setFifteen([...shuffle(fifteen)]);
         setCounter(0);
+        setAnimate(0);
     };
 
     const onMove = (item, id) => () => {
@@ -58,6 +67,7 @@ const Fifteens = () => {
 
             setFifteen([...newFifteen]);
             setCounter(counter + 1);
+            setAnimate(item);
         }
     };
 
@@ -117,40 +127,50 @@ const Fifteens = () => {
         }
     };
 
+    const Bounce = styled.div`animation: .5s ${keyframes`${bounceIn}`}`;
+
     return (
-        <div className={ Styles.wrapper }>
-            <div className={ Styles.header }>
-                <div className={ Styles.restart_wrap }>
-                    <div className={ Styles.restart_btn }
-                         onClick={onRestart}
-                    >
-                        Restart
+        <>
+            <ButtonBack marginLeft={110} marginTop={20} />
+            <div className={ Styles.wrapper }>
+                <div className={ Styles.header }>
+                    <div className={ Styles.restart_wrap }>
+                        <div className={ Styles.restart_btn }
+                             onClick={onRestart}
+                        >
+                            Restart
+                        </div>
+                    </div>
+                    <div className={ Styles.counter_wrap }>
+                        <div className={ Styles.counter }>
+                            Количество ходов: <span className={ Styles.counter_total }>{counter}</span>
+                        </div>
                     </div>
                 </div>
-                <div className={ Styles.counter_wrap }>
-                    <div className={ Styles.counter }>
-                        Количество ходов: <span className={ Styles.counter_total }>{counter}</span>
-                    </div>
+                <div className={ Styles.container }>
+                    {
+                        fifteen.map((item, id) => {
+                            return item !== 0 ? item === animate ?
+                                <Bounce><div key={ item }
+                                     className={ Styles.cell }
+                                     style={ item === id + 1 ? trueCell : null}
+                                     onClick={ onMove(item, id) }
+                                >{ item }</div></Bounce> :
+                                <div key={ item }
+                                     className={ Styles.cell }
+                                     style={ item === id + 1 ? trueCell : null}
+                                     onClick= { onMove(item, id) }
+                                >{ item }</div> :
+                                <div className={ `${Styles.cell} ${Styles.cell_zero}` } key = { item }/>;
+                        })
+                    }
+                    {
+                        checkFifteens(fifteen) ?
+                            <div className={ Styles.game_over }>Congratulations!</div> : null
+                    }
                 </div>
             </div>
-            <div className={ Styles.container }>
-                {
-                    fifteen.map((item, id) => {
-                        return item !== 0 ?
-                            <div key = { item }
-                                 className = { Styles.cell }
-                                 style={ item === id + 1 ? trueCell : null}
-                                 onClick = { onMove(item, id) }
-                            >{ item }</div> :
-                            <div className = { `${Styles.cell} ${Styles.cell_zero}` } key = { item }/>;
-                    })
-                }
-                {
-                    checkFifteens(fifteen) ?
-                        <div className={ Styles.game_over }>Congratulation!</div> : null
-                }
-            </div>
-        </div>
+        </>
     );
 };
 
