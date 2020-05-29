@@ -15,7 +15,7 @@ import {baldaArray} from '../../data/baldaArray';
 
 const Balda = () => {
 
-    const [balda, setBalda] = useState(baldaArray);
+    const [balda, setBalda] = useState([...baldaArray]);
     const [word, setWord] = useState([]);
     const [listWords, setListWords] = useState([]);
     const [gameOver, setGameOver] = useState({player_one: 0, player_two: 0, finish: false});

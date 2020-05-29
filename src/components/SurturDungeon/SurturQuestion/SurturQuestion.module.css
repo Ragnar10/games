@@ -1,0 +1,101 @@
+.question_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 100%;
+    box-sizing: border-box;
+    box-shadow: -2px -2px 3px rgba(255, 109, 95, 0.51), 2px 2px 3px rgba(255, 109, 95, 0.51);
+    background-color: rgba(255, 248, 102, 0.2);
+}
+.question {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 40%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.person_image {
+    width: 15%;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 2px #000000, -1px -1px 2px #000000;
+}
+.question_text {
+    width: 80%;
+    background-color: papayawhip;
+    font-size: 18px;
+    padding: 5px;
+}
+.form {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    width: 100%;
+}
+.attempt {
+    font-size: 24px;
+    line-height: 24px;
+    color: #7fe8ff;
+    text-shadow: 2px 2px 5px #000;
+    margin-bottom: 10px;
+}
+.attempt_text {
+    font-size: 22px;
+    line-height: 20px;
+    color: #191918;
+    text-shadow: 1px 1px 5px #ccc;
+}
+.answer {
+    width: 60%;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 24px;
+    line-height: 40px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid #a34e03;
+    border-radius: 5px;
+}
+.true_answer, .wrong_answer {
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 40px;
+    margin-bottom: 10px;
+    color: #7fe8ff;
+    text-shadow: 2px 2px 5px #000;
+}
+.wrong_answer {
+    color: red;
+}
+.save_btn {
+    display: inline-block;
+    padding: 5px 25px;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px #31231f;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: linear-gradient(114deg, rgb(255, 167, 111) 0%, rgba(255, 97, 0, 0.99) 100%);
+    color: #f5f5ff;
+    text-shadow: 1px 1px 2px #000000;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.ok_btn {
+    background: linear-gradient(114deg, rgb(255, 249, 151) 0%, rgba(72, 255, 105, 0.99) 100%);
+    color: #f5f5ff;
+    box-sizing: border-box;
+    height: 40px;
+}
+.save_btn:active {
+    box-shadow: none;
+}

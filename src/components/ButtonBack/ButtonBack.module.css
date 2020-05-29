@@ -12,3 +12,6 @@
     text-decoration: none;
     cursor: pointer;
 }
+.back:active {
+    box-shadow: none;
+}

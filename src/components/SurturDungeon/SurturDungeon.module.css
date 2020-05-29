@@ -1,0 +1,155 @@
+.main {
+    display: flex;
+}
+.wrapper {
+    display: flex;
+    width: 526px;
+    flex-direction: column;
+    margin: 20px 50px 20px 100px;
+}
+.header {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.restart_wrap, .counter_wrap {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+.restart_wrap {
+    justify-content: flex-start;
+}
+.restart_btn {
+    margin-left: 10px;
+    width: 50%;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px #ffb6e9;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: linear-gradient(114deg, rgba(153,34,195,1) 0%, rgba(255,75,115,0.9948354341736695) 100%);
+    color: #f5f5ff;
+    text-shadow: 1px 1px 2px #430385;
+    cursor: pointer;
+}
+.restart_btn:active {
+    box-shadow: none;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 3px;
+    border: 5px solid rgba(178, 36, 0, 0.84);
+    border-radius: 10px;
+    position: relative;
+    background: url("../../assets/images/bg_dungeon.jpg") no-repeat center;
+    background-size: cover;
+}
+.container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(142, 144, 146, 0.33);
+}
+.cell {
+    width: 100px;
+    height: 100px;
+    margin: 1px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background: none;
+    box-shadow: 2px 2px 4px rgb(141, 141, 141), -2px -2px 4px rgb(141, 141, 141);
+    color: #fff;
+    text-shadow: 0 2px 3px #000;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 100px;
+    cursor: pointer;
+    position: relative;
+}
+.thor {
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/images/thor.png") no-repeat center;
+    background-size: cover;
+}
+.info_board {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+    min-height: 300px;
+    margin-top: 67px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px black;
+    background: url("../../assets/images/bg_stat.jpg") no-repeat center;
+    background-size: cover;
+    font-size: 28px;
+    color: #000000;
+    text-shadow: 0 1px 1px #000;
+}
+.thor_wrapper {
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #7fe8ff;
+    text-shadow: 2px 2px 5px #000;
+    font-size: 30px;
+}
+.thor_stat {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    height: 45%;
+    box-shadow: -2px -2px 3px rgba(255, 109, 95, 0.51), 2px 2px 3px rgba(255, 109, 95, 0.51);
+    background-color: rgba(255, 248, 102, 0.2);
+}
+.thor_model {
+    width: 100px;
+    height: 200px;
+    text-align: center;
+    background: url("../../assets/images/thor.png") no-repeat center;
+    background-size: cover;
+}
+.health {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50px;
+    height: 80%;
+    box-sizing: border-box;
+    border: 2px solid #000;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px #222;
+    color: #fbfff9;
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.game_over {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    padding-top: 225px;
+    text-align: center;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+    color: #e7ff31;
+    text-shadow: 2px 2px 3px #990dff;
+    background-color: rgba(51, 51, 51, 0.8);
+}

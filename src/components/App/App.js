@@ -10,7 +10,7 @@ import Menu from '../Menu/Menu';
 import Fifteens from '../Fifteens/Fifteens';
 import Couples from  '../Couples/Couples';
 import Balda from '../Balda/Balda';
-import LadderToTop from '../LadderToTop/LadderToTop';
+import SurturDungeon from '../SurturDungeon/SurturDungeon';
 import ErrorBoundry from '../ErrorBoundry/ErrorBoundry';
 import ButtonBack from '../ButtonBack/ButtonBack';
 
@@ -18,7 +18,7 @@ const App = () => {
     return (
         <Router>
             <Switch>
-                <Route path='/' exact>
+                <Route path='/home' exact>
                     <ErrorBoundry>
                         <Menu/>
                     </ErrorBoundry>
@@ -38,9 +38,9 @@ const App = () => {
                         <Balda/>
                     </ErrorBoundry>
                 </Route>
-                <Route path='/ladder2top'>
+                <Route path='/surtur_dungeon'>
                     <ErrorBoundry>
-                        <LadderToTop/>
+                        <SurturDungeon/>
                     </ErrorBoundry>
                 </Route>
                 <Route>
