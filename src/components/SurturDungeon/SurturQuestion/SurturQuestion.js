@@ -67,7 +67,7 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
                                        className={ Styles.answer }
                                        onChange={ onChangeAnswer }
                                 />
-                                <div onClick={onCheckedAnswer} className={ `${Styles.save_btn} ${Styles.ok_btn}` }>Ok</div>
+                                <div onClick={onCheckedAnswer} className={ `${Styles.save_btn} ${Styles.ok_btn}` }>Check</div>
                             </> :
                                 <div className={ Styles.wrong_answer }>{ name === 'portalTop' ? 'Sorry, Thor!': name === 'portalDown' ? 'Ahahahah, goodbye, Thor!' : 'Enemy win!'}</div> :
                             <div className={ Styles.true_answer }>{ name === 'portalTop' ? 'Bifrǫst!': name === 'portalDown' ? 'Arrrr, Thor, until next time!' : 'Enemy defeated!'}</div>
