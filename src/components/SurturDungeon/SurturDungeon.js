@@ -1,7 +1,7 @@
 //CORE
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { fadeIn, shake } from 'react-animations';
+import { fadeIn } from 'react-animations';
 
 //COMPONENTS
 import ButtonBack from '../ButtonBack/ButtonBack';
@@ -111,7 +111,7 @@ const SurturDungeon = () => {
     };
 
     const Moved = styled.div`animation: 1s ${keyframes`${fadeIn}`}`;
-    const ShowQuestion = styled.div`animation: 1s ${keyframes`${shake}`}`;
+    const ShowQuestion = styled.div`animation: 1s ${keyframes`${fadeIn}`}`;
 
     return (
         <>
@@ -173,7 +173,7 @@ const SurturDungeon = () => {
                         surturDungeon.find(item => item.visited === true).question && surturDungeon.find(item => item.visited === true).defeated === false ?
                             surturDungeon.filter(item => item.visited === true).map(item => {
                                 return (
-                                    <ShowQuestion style={ {width: 500, height: '45%'} } key={item.id}>
+                                    <ShowQuestion style={ {width: 500, minHeight: '60%'} } key={item.id}>
                                         <SurturQuestion id={ item.id }
                                                     question={ item.question }
                                                     answer={ item.answer }

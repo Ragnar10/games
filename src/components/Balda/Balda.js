@@ -161,7 +161,7 @@ const Balda = () => {
                 </div>
                 <div className={ Styles.table_board }>
                     <div className={ Styles.first_player }>
-                        <div className={ Styles.table_header }>First</div>
+                        <div className={ Styles.table_header }>Игрок №1</div>
                         <div className={ Styles.table_list }>
                             {
                                 listWords.map(({wrd, length}, idx) => {
@@ -192,7 +192,7 @@ const Balda = () => {
                         }
                     </div>
                     <div className={ Styles.second_player }>
-                        <div className={ Styles.table_header }>Second</div>
+                        <div className={ Styles.table_header }>Игрок №2</div>
                         <div className={ Styles.table_list }>
                             {
                                 listWords.map(({wrd, length}, idx) => {

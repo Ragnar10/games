@@ -1,5 +1,7 @@
 //CORE
 import React, { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { shake } from 'react-animations';
 
 //COMPONENTS
 
@@ -16,9 +18,11 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
     const [ourAnswer, setOurAnswer] = useState('');
     const [countAttempt, setCountAttempt] = useState(attempt);
     const [isDefeated, setIsDefeated] = useState(defeated);
+    const [wrongAnswer, setWrongAnswer] = useState(false);
 
     const onChangeAnswer = (e) => {
-       setOurAnswer(e.target.value);
+        setWrongAnswer(false);
+        setOurAnswer(e.target.value);
     } ;
 
     const onCheckedAnswer = () => {
@@ -26,12 +30,14 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
             return false;
         }
 
-        if (ourAnswer === answer) {
+        if (answer.findIndex(item => item.toLowerCase() === ourAnswer.toLowerCase()) >= 0) {
             setIsDefeated(true);
             setCountAttempt((countAttempt) => countAttempt - 1);
+            setWrongAnswer(false);
             setOurAnswer('');
-        } else if (ourAnswer !== answer) {
+        } else if (answer.findIndex(item => item.toLowerCase() === ourAnswer.toLowerCase()) === -1) {
             setCountAttempt((countAttempt) => countAttempt - 1);
+            setWrongAnswer(true);
             setOurAnswer('');
         }
     };
@@ -45,6 +51,7 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
         onChangeAttemptDefeated(id, countAttempt, isDefeated);
     };
 
+    const Wrong = styled.div`animation: 1s ${keyframes`${shake}`}`;
 
     return (
         <div className={ Styles.question_wrapper }>
@@ -62,18 +69,21 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
                         countAttempt > 0 ?
                             <>
                                 <input type='text'
-                                       maxLength={ 15 }
-                                       value={ ourAnswer }
-                                       className={ Styles.answer }
-                                       onChange={ onChangeAnswer }
+                                    maxLength={15}
+                                    value={ourAnswer}
+                                    className={Styles.answer}
+                                    onChange={onChangeAnswer}
                                 />
-                                <div onClick={onCheckedAnswer} className={ `${Styles.save_btn} ${Styles.ok_btn}` }>Check</div>
+                                <div onClick={onCheckedAnswer} className={ `${Styles.save_btn} ${Styles.ok_btn}` }>Проверить</div>
+                                {
+                                    wrongAnswer ? <Wrong><div className={ Styles.wrong_check}>Неверный ответ!</div></Wrong> : null
+                                }
                             </> :
                                 <div className={ Styles.wrong_answer }>{ name === 'portalTop' ? 'Sorry, Thor!': name === 'portalDown' ? 'Ahahahah, goodbye, Thor!' : 'Enemy win!'}</div> :
                             <div className={ Styles.true_answer }>{ name === 'portalTop' ? 'Bifrǫst!': name === 'portalDown' ? 'Arrrr, Thor, until next time!' : 'Enemy defeated!'}</div>
                 }
             </div>
-            <div onClick={ onSaveAnswer } className={ Styles.save_btn }>Save</div>
+            <div onClick={ onSaveAnswer } className={ Styles.save_btn }>Ответить</div>
         </div>
     );
 };

@@ -4,7 +4,7 @@
     width: 500px;
     height: 500px;
     margin: 20px auto;
-    border: 1px solid #212121;
+    border: 3px solid #ffffff;
     border-radius: 50px;
     overflow: hidden;
 }
@@ -15,25 +15,39 @@
     width: 250px;
     height: 250px;
     text-decoration: none;
-    padding: 0 10px 7px 10px;
     box-sizing: border-box;
+    position: relative;
 }
 .link_name {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgba(33, 33, 33, 0.8);
     font-size: 30px;
+    line-height: 250px;
+    text-align: center;
     font-weight: bold;
     color: #fff;
     text-shadow: 0 2px 3px #000, 0 2px 1px #ff7a01;
+    position: absolute;
 }
-.bg_yellow {
-    background: #ffef0e;
+.bg_fifteens {
+    background: url("../../assets/images/bg_fifteens.png") no-repeat;
+    background-size: cover;
 }
-.bg_red {
-    background: #e55b48;
+.bg_couples {
+    background: url("../../assets/images/bg_couples.png") no-repeat;
+    background-size: cover;
 }
-.bg_green {
-    background: #0ea60b;
+.bg_balda {
+    background: url("../../assets/images/bg_balda.png") no-repeat;
+    background-size: cover;
 }
-.bg_blue {
-    background: #4782ff;
+.bg_dungeon {
+    background: url("../../assets/images/bg_surtur_dungeon.png") no-repeat;
+    background-size: cover;
+}
+.link_name:hover {
+    background-color: rgba(33, 33, 33, 0.3);
 }

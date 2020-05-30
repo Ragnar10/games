@@ -66,8 +66,8 @@
     border: 1px solid #333;
     border-radius: 10px;
     box-sizing: border-box;
-    background: linear-gradient(132deg, rgba(182,254,253,1) 0%, rgba(103,255,169,1) 50%, rgba(74,255,98,1) 100%);
-    box-shadow: 2px 2px 4px rgb(207, 255, 248), -2px -2px 4px rgb(207, 255, 248);
+    background: linear-gradient(132deg, rgba(255, 207, 59, 0.77) 0%, rgba(255, 142, 28, 0.77) 50%, rgba(255, 57, 2, 0.77) 100%);
+    box-shadow: 2px 2px 4px rgb(246, 255, 200), -2px -2px 4px rgb(251, 255, 192);
     color: #fff;
     text-shadow: 0 2px 3px #000;
     text-align: center;

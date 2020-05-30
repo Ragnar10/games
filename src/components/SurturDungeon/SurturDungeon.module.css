@@ -89,8 +89,10 @@
     align-items: center;
     width: 800px;
     min-height: 300px;
+    padding: 10px;
     margin-top: 67px;
     margin-bottom: 20px;
+    box-sizing: border-box;
     box-shadow: 0 2px 5px black;
     background: url("../../assets/images/bg_stat.jpg") no-repeat center;
     background-size: cover;
@@ -98,27 +100,29 @@
     color: #000000;
     text-shadow: 0 1px 1px #000;
 }
-.thor_wrapper {
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    color: #7fe8ff;
-    text-shadow: 2px 2px 5px #000;
-    font-size: 30px;
-}
 .thor_stat {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 300px;
-    height: 45%;
+    height: 40%;
+    box-sizing: border-box;
+    margin-top: 10px;
     box-shadow: -2px -2px 3px rgba(255, 109, 95, 0.51), 2px 2px 3px rgba(255, 109, 95, 0.51);
     background-color: rgba(255, 248, 102, 0.2);
 }
+.thor_wrapper {
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #7fe8ff;
+    text-shadow: 2px 2px 5px #000;
+    font-size: 24px;
+}
 .thor_model {
     width: 100px;
-    height: 200px;
+    height: 175px;
     text-align: center;
     background: url("../../assets/images/thor.png") no-repeat center;
     background-size: cover;
