@@ -10,6 +10,12 @@ import SurturQuestion from './SurturQuestion/SurturQuestion';
 //STYLES
 import Styles from './SurturDungeon.module.css';
 
+//IMAGES
+import thorNormal from '../../assets/images/thor_normal.gif';
+import thorAttack from '../../assets/images/thor_attack.gif';
+import thorWin from '../../assets/images/thor_win.gif';
+import mjolnirCrashed from '../../assets/images/mjolnir_crashed.png';
+
 //UTILS
 
 //DATA
@@ -18,7 +24,7 @@ import {surturDungeonArray} from "../../data/surturDungeonArray";
 const SurturDungeon = () => {
 
     const [surturDungeon, setSurturDungeon] = useState(surturDungeonArray);
-    const [thor, setThor] = useState({name: 'Thor', hpValue: 100});
+    const [thor, setThor] = useState({name: 'Thor', hpValue: 100, image: {thorNormal, thorAttack}});
 
     useEffect(() => {
         setSurturDungeon([...surturDungeonArray]);
@@ -26,7 +32,7 @@ const SurturDungeon = () => {
 
     const onRestart = () => {
         setSurturDungeon([...surturDungeonArray]);
-        setThor({name: 'Thor', hpValue: 100});
+        setThor({name: 'Thor', hpValue: 100, image: {thorNormal, thorAttack}});
     };
 
     const setImages = (image, size) => {
@@ -142,7 +148,10 @@ const SurturDungeon = () => {
                                          }
                                     >
                                         {
-                                            item.visited ? <div className={ Styles.thor }/> : null
+                                            item.visited ?
+                                                <div className={ Styles.thor }
+                                                     style={ item.attempt > 0 && item.defeated === false ? setImages(thor.image.thorAttack, '200%') : setImages(thor.image.thorNormal, 'contain') }
+                                                /> : null
                                         }
                                     </div></Moved> :
                                     <div key={ item.id }
@@ -160,11 +169,13 @@ const SurturDungeon = () => {
                         }
                         {
                             thor.hpValue <= 0 ?
-                                <div className={ Styles.game_over }>Game Over!</div> : null
+                                <div className={ Styles.game_over }>
+                                    Game Over! <span className={ Styles.mjolnir } style={ setImages(mjolnirCrashed, 'contain') }/>
+                                </div> : null
                         }
                         {
                             surturDungeon[0].visited && surturDungeon[0].defeated === true && thor.hpValue > 0 ?
-                                <div className={ Styles.game_over }>Congratulations!</div> : null
+                                <div className={ Styles.game_over } style={ setImages(thorWin, '150%') }>Congratulations!</div> : null
                         }
                     </div>
                 </div>
