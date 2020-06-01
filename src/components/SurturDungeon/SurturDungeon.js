@@ -1,10 +1,12 @@
 //CORE
 import React, { useState, useEffect } from 'react';
+import {useHistory} from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 
 //COMPONENTS
 import ButtonBack from '../ButtonBack/ButtonBack';
+import ButtonSound from  '../ButtonSound/ButtonSound';
 import SurturQuestion from './SurturQuestion/SurturQuestion';
 
 //STYLES
@@ -17,11 +19,14 @@ import thorWin from '../../assets/images/thor_win.gif';
 import mjolnirCrashed from '../../assets/images/mjolnir_crashed.png';
 
 //UTILS
+import  { setImages } from '../../utils/helperFunctions';
 
 //DATA
 import {surturDungeonArray} from "../../data/surturDungeonArray";
 
 const SurturDungeon = () => {
+
+    const history = useHistory();
 
     const [surturDungeon, setSurturDungeon] = useState(surturDungeonArray);
     const [thor, setThor] = useState({name: 'Thor', hpValue: 100, image: {thorNormal, thorAttack}});
@@ -33,15 +38,6 @@ const SurturDungeon = () => {
     const onRestart = () => {
         setSurturDungeon([...surturDungeonArray]);
         setThor({name: 'Thor', hpValue: 100, image: {thorNormal, thorAttack}});
-    };
-
-    const setImages = (image, size) => {
-        return {
-            backgroundImage: `url(${image}`,
-            backgroundSize: `${size}`,
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center center'
-        };
     };
 
     const onPortal = (idx, countAttempt, isDefeated) => {
@@ -131,6 +127,7 @@ const SurturDungeon = () => {
                             >
                                 Restart
                             </div>
+                            <ButtonSound nameGame={ history.location.pathname }/>
                         </div>
                     </div>
                     <div className={ Styles.container }>
@@ -142,15 +139,15 @@ const SurturDungeon = () => {
                                          onClick={ onMove(idx) }
                                          style={
                                              item.fieldName === 'exit' ?
-                                                 setImages(item.image, '150%') :
-                                                 item.defeated === false || item.used === false || item.fieldName === 'portalTop' || item.fieldName === 'portalDown' || item.fieldName === 'enter' || item.fieldName === 'exit' ?
-                                                     setImages(item.image, 'contain') : null
+                                                 setImages(item.image, '150%', 'center center') :
+                                                 item.defeated === false && item.used === false || item.fieldName === 'portalTop' || item.fieldName === 'portalDown' || item.fieldName === 'enter' ?
+                                                     setImages(item.image, '100%', 'center center') : item.defeated === false && item.visited === true ? setImages(item.image, '40%', 'right center') : null
                                          }
                                     >
                                         {
                                             item.visited ?
                                                 <div className={ Styles.thor }
-                                                     style={ item.attempt > 0 && item.defeated === false ? setImages(thor.image.thorAttack, '200%') : setImages(thor.image.thorNormal, 'contain') }
+                                                     style={ item.attempt > 0 && item.defeated === false ? setImages(thor.image.thorAttack, '100%', 'left center') : setImages(thor.image.thorNormal, 'contain', 'center center') }
                                                 /> : null
                                         }
                                     </div></Moved> :
@@ -159,9 +156,9 @@ const SurturDungeon = () => {
                                          onClick={onMove(idx)}
                                          style={
                                              item.fieldName === 'exit' ?
-                                                 setImages(item.image, '150%') :
+                                                 setImages(item.image, '150%', 'center center') :
                                                  item.defeated === false || item.used === false || item.fieldName === 'portalTop' || item.fieldName === 'portalDown' || item.fieldName === 'enter' || item.fieldName === 'exit' ?
-                                                     setImages(item.image, 'contain') : null
+                                                     setImages(item.image, 'contain', 'center center') : null
                                          }
                                     >
                                     </div>
@@ -170,12 +167,12 @@ const SurturDungeon = () => {
                         {
                             thor.hpValue <= 0 ?
                                 <div className={ Styles.game_over }>
-                                    Game Over! <span className={ Styles.mjolnir } style={ setImages(mjolnirCrashed, 'contain') }/>
+                                    Game Over! <span className={ Styles.mjolnir } style={ setImages(mjolnirCrashed, 'contain', 'center center') }/>
                                 </div> : null
                         }
                         {
                             surturDungeon[0].visited && surturDungeon[0].defeated === true && thor.hpValue > 0 ?
-                                <div className={ Styles.game_over } style={ setImages(thorWin, '150%') }>Congratulations!</div> : null
+                                <div className={ Styles.game_over } style={ setImages(thorWin, '150%', 'center center') }>Congratulations!</div> : null
                         }
                     </div>
                 </div>

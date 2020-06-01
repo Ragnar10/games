@@ -12,14 +12,16 @@
 .restart_wrap, .counter_wrap {
     display: flex;
     justify-content: flex-end;
-    width: 50%;
+    align-items: center;
+    width: 45%;
 }
 .restart_wrap {
     justify-content: flex-start;
+    width: 55%;
 }
 .restart_btn {
     margin-left: 10px;
-    width: 50%;
+    width: 40%;
     text-align: center;
     padding: 5px 0;
     border-radius: 3px;

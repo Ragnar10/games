@@ -1,10 +1,12 @@
 //CORE
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { flipInY } from 'react-animations';
 
 //COMPONENTS
 import ButtonBack from '../ButtonBack/ButtonBack';
+import ButtonSound from '../ButtonSound/ButtonSound';
 
 //STYLES
 import Styles from './Couples.module.css';
@@ -16,6 +18,8 @@ import {shuffle, checkCouples} from '../../utils/helperFunctions';
 import {couplesArray} from '../../data/couplesArray';
 
 const Couples = () => {
+
+    const history = useHistory();
 
     const [couples, setCouples] = useState([...couplesArray, ...couplesArray]);
     const [counter, setCounter] = useState(0);
@@ -93,6 +97,7 @@ const Couples = () => {
                         >
                             Restart
                         </div>
+                        <ButtonSound nameGame={ history.location.pathname }/>
                     </div>
                     <div className={ Styles.counter_wrap }>
                         <div className={ Styles.counter }>

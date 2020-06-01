@@ -1,19 +1,24 @@
 //CORE
 import React, { useState, useEffect } from 'react';
+import {useHistory} from 'react-router-dom';
 
 //COMPONENTS
 import ButtonBack from '../ButtonBack/ButtonBack';
+import ButtonSound from '../ButtonSound/ButtonSound';
 
 //STYLES
 import Styles from './Balda.module.css';
 
 //UTILS
-import {checkBalda} from '../../utils/helperFunctions';
+import { checkBalda } from '../../utils/helperFunctions';
 
 //DATA
 import {baldaArray} from '../../data/baldaArray';
 
+
 const Balda = () => {
+
+    const history = useHistory();
 
     const [balda, setBalda] = useState([...baldaArray]);
     const [word, setWord] = useState([]);
@@ -124,6 +129,7 @@ const Balda = () => {
                             >
                                 Restart
                             </div>
+                            <ButtonSound nameGame={ history.location.pathname }/>
                         </div>
                         <div className={ Styles.restart_wrap } style={ {justifyContent: 'flex-end'} }>
                             <div className={ Styles.restart_btn }

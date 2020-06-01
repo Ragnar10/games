@@ -1,0 +1,13 @@
+.sound_btn {
+    display: block;
+    width: 37px;
+    height: 37px;
+    margin: 0  5px 0 10px;
+    cursor: pointer;
+
+}
+.range, .range > input {
+    width: 100px;
+}
+
+

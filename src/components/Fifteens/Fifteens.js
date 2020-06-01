@@ -1,10 +1,12 @@
 //CORE
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { bounceIn } from 'react-animations';
 
 //COMPONENTS
 import ButtonBack from '../ButtonBack/ButtonBack';
+import ButtonSound from '../ButtonSound/ButtonSound';
 
 //STYLES
 import Styles from './Fifteens.module.css';
@@ -17,10 +19,11 @@ import {fifteenArray} from '../../data/fifteenArray';
 
 const Fifteens = () => {
 
+    const history = useHistory();
+
     const [fifteen, setFifteen] = useState(fifteenArray);
     const [counter, setCounter] = useState(0);
     const [animate, setAnimate] = useState('');
-
 
     useEffect(() => {
         setFifteen([...shuffle(fifteen)]);
@@ -140,6 +143,7 @@ const Fifteens = () => {
                         >
                             Restart
                         </div>
+                        <ButtonSound nameGame={ history.location.pathname }/>
                     </div>
                     <div className={ Styles.counter_wrap }>
                         <div className={ Styles.counter }>

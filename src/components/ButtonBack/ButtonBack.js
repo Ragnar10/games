@@ -10,7 +10,7 @@ const ButtonBack = ({marginLeft, marginTop}) => {
         marginLeft: `${marginLeft}px`,
         marginTop: `${marginTop}px`
     };
-    return <Link to='/home' style={marginStyle} className={ Styles.back}>Back</Link>;
+    return <Link to='/' style={marginStyle} className={ Styles.back}>Back</Link>;
 };
 
 export default ButtonBack;

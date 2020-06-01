@@ -12,17 +12,15 @@
     width: 100%;
     margin-bottom: 10px;
 }
-.restart_wrap, .counter_wrap {
-    display: flex;
-    justify-content: flex-end;
-    width: 50%;
-}
 .restart_wrap {
+    display: flex;
     justify-content: flex-start;
+    align-items: center;
+    width: 55%;
 }
 .restart_btn {
     margin-left: 10px;
-    width: 50%;
+    width: 40%;
     text-align: center;
     padding: 5px 0;
     border-radius: 3px;

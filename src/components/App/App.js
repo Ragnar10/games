@@ -18,7 +18,7 @@ const App = () => {
     return (
         <Router>
             <Switch>
-                <Route path='/home'>
+                <Route path='/' exact>
                     <ErrorBoundry>
                         <Menu/>
                     </ErrorBoundry>

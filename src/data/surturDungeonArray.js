@@ -1,3 +1,4 @@
+//IMAGES
 import exit from '../assets/images/exit_dungeon.png';
 import enter from '../assets/images/enter_dungeon.jpg';
 import portalTop from '../assets/images/portal_top.png';

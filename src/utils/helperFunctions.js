@@ -25,3 +25,12 @@ export const checkCouples = (arr) => {
 export const checkBalda = (arr) => {
     return arr.filter(({letter}) => letter.length === 0).length;
 };
+
+export const setImages = (image, size, position) => {
+    return {
+        backgroundImage: `url(${image}`,
+        backgroundSize: `${size}`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: `${position}`
+    };
+};
