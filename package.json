@@ -1,6 +1,6 @@
 {
   "name": "games",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "description": "simple games",
   "main": "index.js",
@@ -15,7 +15,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@material-ui/core": "^4.9.11",
     "react": "^16.13.0",
     "react-animations": "^1.0.0",
     "react-dom": "^16.13.0",
