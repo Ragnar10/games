@@ -30,12 +30,13 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
             return false;
         }
 
-        if (answer.findIndex(item => item.toLowerCase() === ourAnswer.toLowerCase()) >= 0) {
+
+        if (answer.findIndex(item => item === ourAnswer.toLowerCase()) >= 0) {
             setIsDefeated(true);
             setCountAttempt((countAttempt) => countAttempt - 1);
             setWrongAnswer(false);
             setOurAnswer('');
-        } else if (answer.findIndex(item => item.toLowerCase() === ourAnswer.toLowerCase()) === -1) {
+        } else if (answer.findIndex(item => item === ourAnswer.toLowerCase()) === -1) {
             setCountAttempt((countAttempt) => countAttempt - 1);
             setWrongAnswer(true);
             setOurAnswer('');
@@ -69,7 +70,7 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
                         countAttempt > 0 ?
                             <>
                                 <input type='text'
-                                    maxLength={15}
+                                    maxLength={50}
                                     value={ourAnswer}
                                     className={Styles.answer}
                                     onChange={onChangeAnswer}
