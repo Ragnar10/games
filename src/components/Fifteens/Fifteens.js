@@ -88,6 +88,7 @@ const Fifteens = () => {
 
             setFifteen([...newFifteen]);
             setCounter(counter + 1);
+            setAnimate(item);
         } else if (e.code === 'ArrowUp') {
             const newFifteen = fifteen;
             const zeroId = newFifteen.findIndex(item => item === 0);
@@ -101,6 +102,7 @@ const Fifteens = () => {
 
             setFifteen([...newFifteen]);
             setCounter(counter + 1);
+            setAnimate(item);
         } else if (e.code === 'ArrowLeft') {
             const newFifteen = fifteen;
             const zeroId = newFifteen.findIndex(item => item === 0);
@@ -114,6 +116,7 @@ const Fifteens = () => {
 
             setFifteen([...newFifteen]);
             setCounter(counter + 1);
+            setAnimate(item);
         } else if (e.code === 'ArrowRight') {
             const newFifteen = fifteen;
             const zeroId = newFifteen.findIndex(item => item === 0);
@@ -127,6 +130,7 @@ const Fifteens = () => {
 
             setFifteen([...newFifteen]);
             setCounter(counter + 1);
+            setAnimate(item);
         }
     };
 
