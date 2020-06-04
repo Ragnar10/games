@@ -12,7 +12,7 @@ import ButtonSound from '../ButtonSound/ButtonSound';
 import Styles from './Couples.module.css';
 
 //UTILS
-import {shuffle, checkCouples} from '../../utils/helperFunctions';
+import {shuffle, checkCouples, setImages} from '../../utils/helperFunctions';
 
 //DATA
 import {couplesArray} from '../../data/couplesArray';
@@ -33,15 +33,6 @@ const Couples = () => {
         setCouples([...shuffle(couples.map(item => ({...item, isShow: false, isOpen: false}) ))]);
         setCounter(0);
         setAnimate('');
-    };
-
-    const setImages = (image) => {
-        return {
-            backgroundImage: `url(${image}`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center center'
-        };
     };
 
     const onShow = (idx) => () => {
@@ -112,12 +103,12 @@ const Couples = () => {
                                 idx === animate ?
                                     <Flip key={ idx }><div
                                          className={ Styles.cell }
-                                         style={ isOpen || isShow ? setImages(image) : null }
+                                         style={ isOpen || isShow ? setImages(image, '200%', 'center center') : null }
                                          onClick={ onShow(idx) }
                                     /></Flip> :
                                     <div key={ idx }
                                          className={ Styles.cell }
-                                         style={ isOpen || isShow ? setImages(image) : null }
+                                         style={ isOpen || isShow ? setImages(image, '200%', 'center center') : null }
                                          onClick={ onShow(idx) }
                                     />
                             );
