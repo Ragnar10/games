@@ -147,7 +147,7 @@
         flex-direction: column;
     }
     .table_board {
-        width: 400px;
+        width: 320px;
         margin: 20px auto;
         font-size: 16px;
     }
@@ -155,7 +155,7 @@
         font-size: 26px;
     }
     .wrapper {
-        width: 400px;
+        width: 320px;
         margin: 20px auto;
     }
     .restart_wrap {
@@ -163,6 +163,7 @@
         width: 60%;
     }
     .restart_btn {
+        letter-spacing: 0;
         font-size: 20px;
         margin-left: 5px;
         padding: 5px;
@@ -172,11 +173,15 @@
         margin-right: 5px;
     }
     .cell {
-        width: 80px;
-        height: 80px;
-        font-size: 48px;
-        line-height: 80px;
+        width: 64px;
+        height: 64px;
+        font-size: 40px;
+        line-height: 64px;
         padding-top: 0;
+    }
+    .game_over {
+        font-size: 50px;
+        line-height: 50px;
     }
 }
 @media (min-width: 520px) and (max-width: 768px) {

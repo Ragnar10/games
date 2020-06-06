@@ -24,7 +24,7 @@
 @media (max-width: 426px) {
     .back {
         width: 20%;
-        padding: 3px 10px;
+        padding: 5px 10px;
         font-size: 20px;
         margin-left: 5px;
     }
@@ -32,7 +32,7 @@
 @media (min-width: 426px) and (max-width: 768px) {
     .back {
         width: 20%;
-        padding: 3px 10px;
+        padding: 5px 10px;
         font-size: 20px;
         margin-left: 5px;
     }

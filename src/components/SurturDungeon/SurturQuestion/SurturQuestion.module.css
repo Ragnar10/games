@@ -116,15 +116,19 @@
 
 @media (max-width: 576px) {
     .question_wrapper {
-        width: 390px;
+        width: 300px;
         margin: 0 auto;
     }
     .save_btn, .ok_btn {
         font-size: 20px;
-        padding: 5px 15px;
+        letter-spacing: 0;
+        padding: 5px;
     }
     .ok_btn{
         height: 33px;
+    }
+    .person_image {
+        height: 60px;
     }
     .answer {
         height: 33px;

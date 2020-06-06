@@ -181,7 +181,7 @@ const SurturDungeon = () => {
                         surturDungeon.find(item => item.visited === true).question && surturDungeon.find(item => item.visited === true).defeated === false ?
                             surturDungeon.filter(item => item.visited === true).map(item => {
                                 return (
-                                    <ShowQuestion style={ {minWidth: 400, minHeight: '60%'} } key={item.id}>
+                                    <ShowQuestion style={ {minWidth: 320, minHeight: '60%'} } key={item.id}>
                                         <SurturQuestion id={ item.id }
                                                     question={ item.question }
                                                     answer={ item.answer }
@@ -194,7 +194,7 @@ const SurturDungeon = () => {
                                         />
                                     </ShowQuestion>
                             )}) :
-                            <div style={ {width: 500, height: '45%'} }/>
+                            <div style={ {minWidth: 320, height: '45%'} }/>
                     }
                     <div className={ Styles.thor_stat }>
                         <div className={ Styles.thor_wrapper }>

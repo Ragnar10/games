@@ -86,7 +86,7 @@
     cursor: default;
 }
 .game_over {
-    width: 100%;
+    width: calc(100% - 5px);
     height: 100%;
     box-sizing: border-box;
     position: absolute;
@@ -102,7 +102,7 @@
 
 @media (max-width: 426px) {
     .wrapper {
-        width: 356px;
+        width: 320px;
         margin: 20px auto;
     }
     .counter_wrap {
@@ -113,6 +113,8 @@
         width: 60%;
     }
     .restart_btn {
+        letter-spacing: 0;
+        font-size: 20px;
         margin-left: 5px;
         padding: 5px;
     }
@@ -125,11 +127,16 @@
         font-size: 20px;
     }
     .cell {
-        width: 79px;
-        height: 79px;
+        width: 70px;
+        height: 70px;
         margin: 3px 3px;
         font-size: 30px;
         line-height: 75px;
+        padding-top: 0;
+    }
+    .game_over {
+        font-size: 30px;
+        line-height: 310px;
         padding-top: 0;
     }
 }
@@ -163,6 +170,11 @@
         margin: 4px 4px;
         font-size: 33px;
         line-height: 90px;
+        padding-top: 0;
+    }
+    .game_over {
+        font-size: 40px;
+        line-height: 398px;
         padding-top: 0;
     }
 }
