@@ -118,119 +118,116 @@ const Balda = () => {
     };
 
     return (
-        <>
-            <ButtonBack marginLeft={ 110 } marginTop={ 20 } />
-            <div className={ Styles.main }>
-                <div className={ Styles.wrapper }>
-                    <div className={ Styles.header }>
-                        <div className={ Styles.restart_wrap }>
-                            <div className={ Styles.restart_btn }
-                                 onClick={ onRestart }
-                            >
-                                Restart
-                            </div>
-                            <ButtonSound nameGame={ history.location.pathname }/>
+        <div className={ Styles.main }>
+            <div className={ Styles.wrapper }>
+                <ButtonBack width={'20%'}/>
+                <div className={ Styles.header }>
+                    <div className={ Styles.restart_wrap }>
+                        <div className={ Styles.restart_btn }
+                             onClick={ onRestart }
+                        >
+                            Restart
                         </div>
-                        <div className={ Styles.restart_wrap } style={ {justifyContent: 'flex-end'} }>
-                            <div className={ Styles.restart_btn }
-                                 style={ {marginRight: '10px'} }
-                                 onClick={ onEndgame }
-                            >
-                                Endgame
-                            </div>
+                        <ButtonSound nameGame={ history.location.pathname }/>
+                    </div>
+                    <div className={ Styles.restart_wrap } style={ {justifyContent: 'flex-end'} }>
+                        <div className={ `${Styles.restart_btn} ${Styles.endgame_btn}` }
+                             onClick={ onEndgame }
+                        >
+                            Endgame
                         </div>
                     </div>
-                    <div className={ Styles.container }>
+                </div>
+                <div className={ Styles.container }>
+                    {
+                        balda.map(({id, letter, selected}, idx) => {
+                            return !letter ?
+                                <input key={ id }
+                                       className ={ Styles.cell }
+                                       type='text'
+                                       value={ letter }
+                                       maxLength={ 1 }
+                                       onChange={ (e) => onChangeLetter(idx, e) }
+                                /> :
+                                <div key={ id }
+                                     className={ Styles.cell }
+                                     style={ selected ? {background: '#f8ffae', cursor: 'pointer'} : {background: '#bcffb6', cursor: 'pointer'} }
+                                     onContextMenu={ (e) => onClearLetter(idx, e) }
+                                     onClick={ onSelectionWord(letter, idx) }
+                                     onDoubleClick={ onClearSelectionWord(idx) }
+                                >
+                                    { letter }
+                                </div>
+                            ;
+                        })
+                    }
+                </div>
+            </div>
+            <div className={ Styles.table_board }>
+                <div className={ Styles.first_player }>
+                    <div className={ Styles.table_header }>Игрок №1</div>
+                    <div className={ Styles.table_list }>
                         {
-                            balda.map(({id, letter, selected}, idx) => {
-                                return !letter ?
-                                    <input key={ id }
-                                           className ={ Styles.cell }
-                                           type='text'
-                                           value={ letter }
-                                           maxLength={ 1 }
-                                           onChange={ (e) => onChangeLetter(idx, e) }
-                                    /> :
-                                    <div key={ id }
-                                         className={ Styles.cell }
-                                         style={ selected ? {background: '#f8ffae', cursor: 'pointer'} : {background: '#bcffb6', cursor: 'pointer'} }
-                                         onContextMenu={ (e) => onClearLetter(idx, e) }
-                                         onClick={ onSelectionWord(letter, idx) }
-                                         onDoubleClick={ onClearSelectionWord(idx) }
-                                    >
-                                        { letter }
-                                    </div>
-                                ;
+                            listWords.map(({wrd, length}, idx) => {
+                                return idx === 0 || idx%2 === 0 ? <div key={ wrd }>{`${wrd} - ${length}`}</div> : null
                             })
                         }
                     </div>
-                </div>
-                <div className={ Styles.table_board }>
-                    <div className={ Styles.first_player }>
-                        <div className={ Styles.table_header }>Игрок №1</div>
-                        <div className={ Styles.table_list }>
-                            {
-                                listWords.map(({wrd, length}, idx) => {
-                                    return idx === 0 || idx%2 === 0 ? <div key={ wrd }>{`${wrd} - ${length}`}</div> : null
-                                })
-                            }
-                        </div>
-                        {
-                            !checkBalda(balda) || gameOver.finish ? <div className={ Styles.table_result}>
-                                <span className={ Styles.table_result_title }>Результат: </span>
-                                <span className={ Styles.table_result_sum }>
-                                    {
-                                        listWords.length ?
+                    {
+                        !checkBalda(balda) || gameOver.finish ? <div className={ Styles.table_result}>
+                            <span className={ Styles.table_result_title }>Результат: </span>
+                            <span className={ Styles.table_result_sum }>
+                                {
+                                    listWords.length ?
+                                        listWords.filter((item, idx) =>  idx === 0 || idx%2 === 0).reduce((initialValue, prev) => {
+                                            return initialValue + prev.length;
+                                        }, 0) ?
                                             listWords.filter((item, idx) =>  idx === 0 || idx%2 === 0).reduce((initialValue, prev) => {
                                                 return initialValue + prev.length;
-                                            }, 0) ?
-                                                listWords.filter((item, idx) =>  idx === 0 || idx%2 === 0).reduce((initialValue, prev) => {
-                                                    return initialValue + prev.length;
-                                                }, 0) : null
-                                        : null
-                                    }
-                                </span>
-                            </div> : null
-                        }
+                                            }, 0) : null
+                                    : null
+                                }
+                            </span>
+                        </div> : null
+                    }
+                    {
+                        gameOver.player_one > gameOver.player_two  ?
+                            <div className={ Styles.game_over }>Win!</div> : null
+                    }
+                </div>
+                <div className={ Styles.second_player }>
+                    <div className={ Styles.table_header }>Игрок №2</div>
+                    <div className={ Styles.table_list }>
                         {
-                            gameOver.player_one > gameOver.player_two  ?
-                                <div className={ Styles.game_over }>Win!</div> : null
+                            listWords.map(({wrd, length}, idx) => {
+                                return idx === 1 || idx%2 !== 0 ? <div key={ wrd }>{`${wrd} - ${length}`}</div> : null
+                            })
                         }
                     </div>
-                    <div className={ Styles.second_player }>
-                        <div className={ Styles.table_header }>Игрок №2</div>
-                        <div className={ Styles.table_list }>
-                            {
-                                listWords.map(({wrd, length}, idx) => {
-                                    return idx === 1 || idx%2 !== 0 ? <div key={ wrd }>{`${wrd} - ${length}`}</div> : null
-                                })
-                            }
-                        </div>
-                        {
-                            !checkBalda(balda) || gameOver.finish ? <div className={Styles.table_result}>
-                                <span className={Styles.table_result_title}>Результат: </span>
-                                <span className={Styles.table_result_sum}>
-                                    {
-                                        listWords.length ?
+                    {
+                        !checkBalda(balda) || gameOver.finish ? <div className={Styles.table_result}>
+                            <span className={Styles.table_result_title}>Результат: </span>
+                            <span className={Styles.table_result_sum}>
+                                {
+                                    listWords.length ?
+                                        listWords.filter((item, idx) => idx === 1 || idx % 2 !== 0).reduce((initialValue, prev) => {
+                                            return initialValue + prev.length;
+                                        }, 0) ?
                                             listWords.filter((item, idx) => idx === 1 || idx % 2 !== 0).reduce((initialValue, prev) => {
                                                 return initialValue + prev.length;
-                                            }, 0) ?
-                                                listWords.filter((item, idx) => idx === 1 || idx % 2 !== 0).reduce((initialValue, prev) => {
-                                                    return initialValue + prev.length;
-                                                }, 0) : null
-                                            : null
-                                    }
-                                </span>
-                            </div> : null
-                        }
-                        {
-                            gameOver.player_one < gameOver.player_two  ?
-                                <div className={ Styles.game_over }>Win!</div> : null
-                        }
-                    </div>
+                                            }, 0) : null
+                                        : null
+                                }
+                            </span>
+                        </div> : null
+                    }
+                    {
+                        gameOver.player_one < gameOver.player_two  ?
+                            <div className={ Styles.game_over }>Win!</div> : null
+                    }
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

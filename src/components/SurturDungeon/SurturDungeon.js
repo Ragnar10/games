@@ -117,9 +117,9 @@ const SurturDungeon = () => {
 
     return (
         <>
-            <ButtonBack marginLeft={ 110 } marginTop={ 20 } />
             <div className={ Styles.main }>
                 <div className={ Styles.wrapper }>
+                    <ButtonBack width={'20%'}/>
                     <div className={ Styles.header }>
                         <div className={ Styles.restart_wrap }>
                             <div className={ Styles.restart_btn }
@@ -181,7 +181,7 @@ const SurturDungeon = () => {
                         surturDungeon.find(item => item.visited === true).question && surturDungeon.find(item => item.visited === true).defeated === false ?
                             surturDungeon.filter(item => item.visited === true).map(item => {
                                 return (
-                                    <ShowQuestion style={ {width: 500, minHeight: '60%'} } key={item.id}>
+                                    <ShowQuestion style={ {minWidth: 400, minHeight: '60%'} } key={item.id}>
                                         <SurturQuestion id={ item.id }
                                                     question={ item.question }
                                                     answer={ item.answer }

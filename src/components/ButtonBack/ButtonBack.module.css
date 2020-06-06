@@ -1,6 +1,11 @@
 .back {
     display: inline-block;
-    padding: 5px 25px;
+    width: 22%;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    text-align: center;
     border-radius: 3px;
     box-shadow: 0 2px 3px #ffb6e9;
     font-size: 24px;
@@ -14,4 +19,30 @@
 }
 .back:active {
     box-shadow: none;
+}
+
+@media (max-width: 426px) {
+    .back {
+        width: 20%;
+        padding: 3px 10px;
+        font-size: 20px;
+        margin-left: 5px;
+    }
+}
+@media (min-width: 426px) and (max-width: 768px) {
+    .back {
+        width: 20%;
+        padding: 3px 10px;
+        font-size: 20px;
+        margin-left: 5px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+@media (min-width: 1024px) and (max-width: 1224px) {
+
+}
+@media (min-width: 1224px) and (max-width: 1440px) {
+
 }

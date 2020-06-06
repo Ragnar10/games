@@ -1,19 +1,19 @@
 .menu {
     display: flex;
     flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     margin: 20px auto;
     border: 3px solid #ffffff;
-    border-radius: 50px;
+    border-radius: 60px;
     overflow: hidden;
 }
 .link {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     text-decoration: none;
     box-sizing: border-box;
     position: relative;
@@ -25,7 +25,7 @@
     box-sizing: border-box;
     background-color: rgba(33, 33, 33, 0.8);
     font-size: 30px;
-    line-height: 250px;
+    line-height: 300px;
     text-align: center;
     font-weight: bold;
     color: #fff;
@@ -51,3 +51,48 @@
 .link_name:hover {
     background-color: rgba(33, 33, 33, 0.3);
 }
+
+@media (max-width: 426px) {
+    .menu {
+        width: 300px;
+        height: 300px;
+        border-radius: 30px;
+    }
+    .link {
+        width: 150px;
+        height: 150px;
+    }
+    .link_name {
+        line-height: 150px;
+    }
+}
+@media (min-width: 426px) and (max-width: 768px) {
+    .menu {
+        width: 400px;
+        height: 400px;
+        border-radius: 40px;
+    }
+    .link {
+        width: 200px;
+        height: 200px;
+    }
+    .link_name {
+        line-height: 200px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .menu {
+        width: 500px;
+        height: 500px;
+        border-radius: 50px;
+    }
+    .link {
+        width: 250px;
+        height: 250px;
+    }
+    .link_name {
+        line-height: 250px;
+    }
+}
+

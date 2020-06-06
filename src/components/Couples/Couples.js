@@ -78,49 +78,47 @@ const Couples = () => {
     const Flip = styled.div`animation: 1s ${keyframes`${flipInY}`}`;
 
     return (
-        <>
-            <ButtonBack marginLeft={110} marginTop={20} />
-            <div className={ Styles.wrapper }>
-                <div className={ Styles.header }>
-                    <div className={ Styles.restart_wrap }>
-                        <div className={ Styles.restart_btn }
-                             onClick={onRestart}
-                        >
-                            Restart
-                        </div>
-                        <ButtonSound nameGame={ history.location.pathname }/>
+        <div className={ Styles.wrapper }>
+            <ButtonBack/>
+            <div className={ Styles.header }>
+                <div className={ Styles.restart_wrap }>
+                    <div className={ Styles.restart_btn }
+                         onClick={onRestart}
+                    >
+                        Restart
                     </div>
-                    <div className={ Styles.counter_wrap }>
-                        <div className={ Styles.counter }>
-                            Количество попыток: <span className={ Styles.counter_total }>{Math.floor(counter / 2)}</span>
-                        </div>
-                    </div>
+                    <ButtonSound nameGame={ history.location.pathname }/>
                 </div>
-                <div className={ Styles.container }>
-                    {
-                        couples.map(({id, image, isOpen, isShow}, idx) => {
-                            return (
-                                idx === animate ?
-                                    <Flip key={ idx }><div
-                                         className={ Styles.cell }
-                                         style={ isOpen || isShow ? setImages(image, '200%', 'center center') : null }
-                                         onClick={ onShow(idx) }
-                                    /></Flip> :
-                                    <div key={ idx }
-                                         className={ Styles.cell }
-                                         style={ isOpen || isShow ? setImages(image, '200%', 'center center') : null }
-                                         onClick={ onShow(idx) }
-                                    />
-                            );
-                        })
-                    }
-                    {
-                        checkCouples(couples) ?
-                            <div className={ Styles.game_over }>Congratulations!</div> : null
-                    }
+                <div className={ Styles.counter_wrap }>
+                    <div className={ Styles.counter }>
+                        Количество попыток: <span className={ Styles.counter_total }>{Math.floor(counter / 2)}</span>
+                    </div>
                 </div>
             </div>
-        </>
+            <div className={ Styles.container }>
+                {
+                    couples.map(({id, image, isOpen, isShow}, idx) => {
+                        return (
+                            idx === animate ?
+                                <Flip key={ idx }><div
+                                     className={ Styles.cell }
+                                     style={ isOpen || isShow ? setImages(image, '200%', 'center center') : null }
+                                     onClick={ onShow(idx) }
+                                /></Flip> :
+                                <div key={ idx }
+                                     className={ Styles.cell }
+                                     style={ isOpen || isShow ? setImages(image, '200%', 'center center') : null }
+                                     onClick={ onShow(idx) }
+                                />
+                        );
+                    })
+                }
+                {
+                    checkCouples(couples) ?
+                        <div className={ Styles.game_over }>Congratulations!</div> : null
+                }
+            </div>
+        </div>
     );
 };
 

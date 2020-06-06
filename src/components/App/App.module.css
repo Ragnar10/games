@@ -19,3 +19,14 @@
     width: 50%;
     text-align: center;
 }
+
+@media (max-width: 426px) {
+    .error {
+        width: 300px;
+    }
+}
+@media (min-width: 426px) and (max-width: 768px) {
+    .error {
+        width: 400px;
+    }
+}

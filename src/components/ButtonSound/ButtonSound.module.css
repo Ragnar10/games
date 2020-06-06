@@ -10,4 +10,33 @@
     width: 100px;
 }
 
+@media (max-width: 426px) {
+    .sound_btn {
+        width: 30px;
+        height: 30px;
+        margin: 0  5px 0 10px;
+    }
+    .range, .range > input {
+        width: 70px;
+    }
+}
+@media (min-width: 426px) and (max-width: 768px) {
+    .sound_btn {
+        width: 30px;
+        height: 30px;
+        margin: 0  5px 0 10px;
+    }
+    .range, .range > input {
+        width: 70px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+@media (min-width: 1024px) and (max-width: 1224px) {
+
+}
+@media (min-width: 1224px) and (max-width: 1440px) {
+
+}
 

@@ -5,7 +5,7 @@
     display: flex;
     width: 526px;
     flex-direction: column;
-    margin: 20px 50px 20px 100px;
+    margin: 20px 50px;
 }
 .header {
     display: flex;
@@ -161,4 +161,104 @@
     height: 100px;
     margin: 10px auto;
     transform: rotate(30deg);
+}
+
+@media (max-width: 576px) {
+    .main {
+        flex-direction: column;
+    }
+    .info_board {
+        width: 410px;
+        margin: 20px auto;
+        font-size: 16px;
+    }
+    .thor_stat {
+        height: 220px;
+    }
+    .wrapper {
+        width: 410px;
+        box-sizing: border-box;
+        margin: 20px auto;
+    }
+    .container {
+        width: 100%;
+        border-width: 3px;
+        padding-left: 2px;
+        padding-right: 2px;
+        box-sizing: border-box;
+    }
+    .restart_wrap {
+        justify-content: flex-start;
+        width: 60%;
+    }
+    .restart_btn {
+        font-size: 20px;
+        margin-left: 5px;
+        padding: 5px;
+    }
+    .cell {
+        width: 78px;
+        height: 78px;
+        font-size: 48px;
+        line-height: 78px;
+        padding-top: 0;
+    }
+    .game_over {
+        padding-top: 167px;
+    }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+    .info_board {
+        width: 510px;
+        margin: 20px auto;
+        font-size: 18px;
+    }
+    .thor_stat {
+        height: 220px;
+    }
+    .wrapper {
+        width: 510px;
+        margin: 20px auto;
+    }
+    .container {
+        width: 100%;
+    }
+    .restart_wrap {
+        justify-content: flex-start;
+        width: 60%;
+    }
+    .restart_btn {
+        font-size: 20px;
+        margin-left: 5px;
+        padding: 5px;
+    }
+    .cell {
+        width: 100px;
+        height: 100px;
+        font-size: 60px;
+        line-height: 100px;
+        padding-top: 0;
+    }
+    .game_over {
+        padding-top: 217px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+    .main {
+        flex-direction: column;
+    }
+    .info_board {
+        width: 700px;
+        margin: 20px auto;
+    }
+    .wrapper {
+        margin: 20px auto;
+    }
+    .thor_stat {
+        height: 220px;
+    }
+
 }
