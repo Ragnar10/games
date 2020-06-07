@@ -98,19 +98,19 @@
     border: none;
     outline: none;
 }
-.ok_btn {
-    width: calc(40% - 10px);
-    background: linear-gradient(114deg, rgb(255, 249, 151) 0%, rgba(72, 255, 105, 0.99) 100%);
-    color: #f5f5ff;
-    box-sizing: border-box;
-    height: 40px;
-    text-align: center;
-}
+/*.ok_btn {*/
+    /*width: calc(40% - 10px);*/
+    /*background: linear-gradient(114deg, rgb(255, 249, 151) 0%, rgba(72, 255, 105, 0.99) 100%);*/
+    /*color: #f5f5ff;*/
+    /*box-sizing: border-box;*/
+    /*height: 40px;*/
+    /*text-align: center;*/
+/*}*/
 .wrong_check {
-    font-size: 20px;
-    color: red;
-    margin-bottom: 10px;
-}
+     font-size: 20px;
+     color: red;
+     margin-bottom: 10px;
+ }
 .save_btn:active {
     box-shadow: none;
 }
@@ -127,9 +127,9 @@
         height: 33px;
         padding: 0 3px;
     }
-    .ok_btn {
-        padding: 0;
-    }
+    /*.ok_btn {*/
+        /*padding: 0;*/
+    /*}*/
     .person_image {
         height: 60px;
     }

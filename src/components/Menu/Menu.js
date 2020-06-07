@@ -18,7 +18,7 @@ const Menu = () => {
                 <span className={ Styles.link_name }>Balda</span>
             </NavLink>
             <NavLink to='surtur_dungeon'  className={ `${Styles.link} ${Styles.bg_dungeon}` }>
-                <span className={ Styles.link_name }>Surtur's Dungeon</span>
+                <span className={ `${Styles.link_name} ${Styles.link_name_long}` }>{`Surtur's \n Dungeon`}</span>
             </NavLink>
         </div>
     );
