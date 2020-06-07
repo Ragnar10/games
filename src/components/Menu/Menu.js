@@ -14,9 +14,15 @@ const Menu = () => {
             <NavLink to='couples'  className={ `${Styles.link} ${Styles.bg_couples}` }>
                 <span className={ Styles.link_name }>Couples</span>
             </NavLink>
-            <NavLink to='balda' className={ `${Styles.link} ${Styles.bg_balda}` }>
-                <span className={ Styles.link_name }>Balda</span>
-            </NavLink>
+            {
+                !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ?
+                    <NavLink to='balda' className={`${Styles.link} ${Styles.bg_balda}`}>
+                        <span className={Styles.link_name}>Balda</span>
+                    </NavLink> :
+                    <NavLink to='/' className={`${Styles.link} ${Styles.bg_balda}`}>
+                        <span className={Styles.link_name} style={ {fontSize : '16px'} }>{'Sorry! \n For PC only.'}</span>
+                    </NavLink>
+            }
             <NavLink to='surtur_dungeon'  className={ `${Styles.link} ${Styles.bg_dungeon}` }>
                 <span className={ `${Styles.link_name} ${Styles.link_name_long}` }>{`Surtur's \n Dungeon`}</span>
             </NavLink>
