@@ -13,13 +13,11 @@ import Styles from './SurturQuestion.module.css';
 //DATA
 
 
-const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, onPortal, onChangeAttemptDefeated}) => {
+const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, wrongAnswer, onSetWrongAnswer, onPortal, onChangeAttemptDefeated}) => {
 
     const [ourAnswer, setOurAnswer] = useState('');
-    //const [wrongAnswer, setWrongAnswer] = useState(false);
 
     const onChangeAnswer = (e) => {
-        //setWrongAnswer(false);
         setOurAnswer(e.target.value);
     } ;
 
@@ -34,7 +32,7 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
                 onPortal(idx, attempt - 1, true);
             }
             onChangeAttemptDefeated(id, attempt - 1, true);
-            //setWrongAnswer(false);
+            onSetWrongAnswer(false);
             setOurAnswer('');
         } else if (answer.findIndex(item => item === ourAnswer.toLowerCase()) === -1) {
             if (name === 'portalTop' || name === 'portalDown') {
@@ -42,21 +40,11 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
                 onPortal(idx, attempt - 1, false);
             }
             onChangeAttemptDefeated(id, attempt - 1, false);
-            //setWrongAnswer(true);
+            onSetWrongAnswer(true);
             setOurAnswer('');
         }
     };
 
-    // const onSaveAnswer = () => {
-    //     if (name === 'portalTop' || name === 'portalDown') {
-    //         const idx = id - 1;
-    //         onPortal(idx, countAttempt, isDefeated);
-    //     }
-    //
-    //     onChangeAttemptDefeated(id, countAttempt, isDefeated);
-    // };
-
-    //const Wrong = styled.div`animation: 1s ${keyframes`${shake}`}`;
 
     return (
         <div className={ Styles.question_wrapper }>
@@ -79,13 +67,10 @@ const SurturQuestion = ({id, question, answer, attempt, defeated, person, name, 
                                     className={Styles.answer}
                                     onChange={onChangeAnswer}
                                 />
-                                {/*<div onClick={onCheckedAnswer} className={ `${Styles.save_btn} ${Styles.ok_btn}` }>Проверить</div>*/}
-                                {/*{*/}
-                                    {/*wrongAnswer ? <Wrong><div className={ Styles.wrong_check}>Неверный ответ!</div></Wrong> : null*/}
-                                {/*}*/}
-                            </> :
-                                <div className={ Styles.wrong_answer }>{ name === 'portalTop' ? 'Sorry, Thor!': name === 'portalDown' ? 'Ahahahah, goodbye, Thor!' : 'Enemy win!'}</div> :
-                            <div className={ Styles.true_answer }>{ name === 'portalTop' ? 'Bifrǫst!': name === 'portalDown' ? 'Arrrr, Thor, until next time!' : 'Enemy defeated!'}</div>
+                                {
+                                    wrongAnswer && attempt < 3 ? <div className={ Styles.wrong_check}>Неверный ответ!</div> : null
+                                }
+                            </> : null : null
                 }
             </div>
             { attempt === 0 && defeated === false && name === 'portalTop' ? null : <div onClick={ onSaveAnswer } className={ Styles.save_btn }>{'Ответить' }</div> }

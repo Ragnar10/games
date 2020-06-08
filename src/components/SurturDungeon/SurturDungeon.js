@@ -30,6 +30,7 @@ const SurturDungeon = () => {
 
     const [surturDungeon, setSurturDungeon] = useState(surturDungeonArray);
     const [thor, setThor] = useState({name: 'Thor', hpValue: 100, image: {thorNormal, thorAttack}});
+    const [wrongAnswer, setWrongAnswer] = useState(false);
 
     useEffect(() => {
         setSurturDungeon([...surturDungeonArray]);
@@ -38,6 +39,7 @@ const SurturDungeon = () => {
     const onRestart = () => {
         setSurturDungeon([...surturDungeonArray]);
         setThor({name: 'Thor', hpValue: 100, image: {thorNormal, thorAttack}});
+        setWrongAnswer(false);
     };
 
     const onPortal = (idx, countAttempt, isDefeated) => {
@@ -49,7 +51,6 @@ const SurturDungeon = () => {
             newSurturDungeon[idx] = {...newSurturDungeon[idx], visited: false};
             newSurturDungeon[portalTopIdxArray[0]] = {...newSurturDungeon[portalTopIdxArray[0]], visited: true};
             setSurturDungeon([...newSurturDungeon]);
-            console.log(surturDungeon[idx]);
             return;
         }
            // Portal Down
@@ -62,6 +63,8 @@ const SurturDungeon = () => {
     };
 
     const onMove = (idx) => () => {
+        console.log(surturDungeon[idx]);
+
         const oldIdx = surturDungeon.findIndex(item => item.visited === true);
         const newSurturDungeon = surturDungeon;
         if (newSurturDungeon[idx].fieldName === 'health' && newSurturDungeon[idx].used === false && thor.hpValue !== 100) {
@@ -104,12 +107,16 @@ const SurturDungeon = () => {
             }
         }
 
-        setSurturDungeon([...surturDungeon.slice(0, idx), {...surturDungeon[idx], attempt: countAttempt, defeated: isDefeated, nextStep: next}, ...surturDungeon.slice(idx + 1)]);
+        setSurturDungeon([...surturDungeon.slice(0, idx), {...surturDungeon[idx], attempt: countAttempt, defeated: isDefeated}, ...surturDungeon.slice(idx + 1)]);
 
         if (surturDungeon[idx].fieldName === 'portalDown' && countAttempt === 0 && isDefeated === false) {
             setSurturDungeon([...surturDungeon.slice(0, idx), {...surturDungeon[idx], attempt: 0, defeated: true}, ...surturDungeon.slice(idx + 1)]);
 
         }
+    };
+
+    const onSetWrongAnswer = (wrong) => {
+        setWrongAnswer(wrong);
     };
 
     const Moved = styled.div`animation: 1s ${keyframes`${fadeIn}`}`;
@@ -178,23 +185,27 @@ const SurturDungeon = () => {
                 </div>
                 <div className={ Styles.info_board }>
                     {
-                        surturDungeon.find(item => item.visited === true).question && surturDungeon.find(item => item.visited === true).defeated === false ?
-                            surturDungeon.filter(item => item.visited === true).map(item => {
-                                return (
-                                    <ShowQuestion style={ {minWidth: 320, minHeight: '60%'} } key={item.id}>
-                                        <SurturQuestion id={ item.id }
-                                                    question={ item.question }
-                                                    answer={ item.answer }
-                                                    attempt={ item.attempt }
-                                                    defeated={ item.defeated }
-                                                    person={ item.personImage ? item.personImage : item.image }
-                                                    name={ item.fieldName }
-                                                    onPortal={ onPortal }
-                                                    onChangeAttemptDefeated={ onChangeAttemptDefeated }
-                                        />
-                                    </ShowQuestion>
-                            )}) :
-                            <div style={ {minWidth: 320, height: '45%'} }/>
+                        surturDungeon.find(item => item.visited === true).defeated === false && surturDungeon.find(item => item.visited === true).fieldName === 'portalTop' && surturDungeon.find(item => item.visited === true).attempt === 0 ?
+                            <div style={ {minWidth: 320, height: '45%'} }/> :
+                            surturDungeon.find(item => item.visited === true).question && surturDungeon.find(item => item.visited === true).defeated === false ?
+                                surturDungeon.filter(item => item.visited === true).map(item => {
+                                    return (
+                                        <ShowQuestion style={ {minWidth: 320, minHeight: '60%'} } key={item.id}>
+                                            <SurturQuestion id={ item.id }
+                                                        question={ item.question }
+                                                        answer={ item.answer }
+                                                        attempt={ item.attempt }
+                                                        defeated={ item.defeated }
+                                                        person={ item.personImage ? item.personImage : item.image }
+                                                        name={ item.fieldName }
+                                                        wrongAnswer={ wrongAnswer }
+                                                        onSetWrongAnswer={ onSetWrongAnswer }
+                                                        onPortal={ onPortal }
+                                                        onChangeAttemptDefeated={ onChangeAttemptDefeated }
+                                            />
+                                        </ShowQuestion>
+                                )}) :
+                                <div style={ {minWidth: 320, height: '45%'} }/>
                     }
                     <div className={ Styles.thor_stat }>
                         <div className={ Styles.thor_wrapper }>
