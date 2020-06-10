@@ -9,7 +9,7 @@ const ButtonBack = ({width}) => {
     const backStyle = {
         width: `${width}`
     };
-    return <Link to='/' style={backStyle} className={ Styles.back}>Back</Link>;
+    return <Link to='/' style={ backStyle } className={ Styles.back }>Back</Link>;
 };
 
 export default ButtonBack;

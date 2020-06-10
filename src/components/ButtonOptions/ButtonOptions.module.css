@@ -1,0 +1,43 @@
+.options_btn {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px #ffb6e9;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: linear-gradient(114deg, rgb(255, 192, 82) 0%, rgba(255, 250, 59, 0.99) 100%);
+    color: #f5f5ff;
+    text-shadow: 1px 1px 2px #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.options_btn:active {
+    box-shadow: none;
+}
+
+@media (max-width: 426px) {
+    .options_btn {
+        font-size: 20px;
+        margin-left: 5px;
+    }
+}
+@media (min-width: 426px) and (max-width: 768px) {
+    .options_btn {
+        font-size: 20px;
+        margin-left: 5px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+@media (min-width: 1024px) and (max-width: 1224px) {
+
+}
+@media (min-width: 1224px) and (max-width: 1440px) {
+
+}

@@ -7,6 +7,8 @@ import { bounceIn } from 'react-animations';
 //COMPONENTS
 import ButtonBack from '../ButtonBack/ButtonBack';
 import ButtonSound from '../ButtonSound/ButtonSound';
+import ButtonOptions from '../ButtonOptions/ButtonOptions';
+import Options from  '../Options/Options';
 
 //STYLES
 import Styles from './Fifteens.module.css';
@@ -24,6 +26,7 @@ const Fifteens = () => {
     const [fifteen, setFifteen] = useState(fifteenArray);
     const [counter, setCounter] = useState(0);
     const [animate, setAnimate] = useState('');
+    const [options, setOptions] = useState(false);
 
     useEffect(() => {
         setFifteen([...shuffle(fifteen)]);
@@ -134,49 +137,63 @@ const Fifteens = () => {
         }
     };
 
+    const onShowOptions = () => {
+        setOptions((options) => !options);
+    };
+
     const Bounce = styled.div`animation: .5s ${keyframes`${bounceIn}`}`;
 
     return (
-        <div className={ Styles.wrapper }>
-            <ButtonBack/>
-            <div className={ Styles.header }>
-                <div className={ Styles.restart_wrap }>
-                    <div className={ Styles.restart_btn }
-                         onClick={onRestart}
-                    >
-                        Restart
-                    </div>
-                    <ButtonSound nameGame={ history.location.pathname }/>
-                </div>
-                <div className={ Styles.counter_wrap }>
-                    <div className={ Styles.counter }>
-                        Количество ходов: <span className={ Styles.counter_total }>{counter}</span>
-                    </div>
-                </div>
-            </div>
-            <div className={ Styles.container }>
-                {
-                    fifteen.map((item, id) => {
-                        return item !== 0 ? item === animate ?
-                            <Bounce><div key={ item }
-                                 className={ Styles.cell }
-                                 style={ item === id + 1 ? trueCell : null}
-                                 onClick={ onMove(item, id) }
-                            >{ item }</div></Bounce> :
-                            <div key={ item }
-                                 className={ Styles.cell }
-                                 style={ item === id + 1 ? trueCell : null}
-                                 onClick= { onMove(item, id) }
-                            >{ item }</div> :
-                            <div className={ `${Styles.cell} ${Styles.cell_zero}` } key = { item }/>;
-                    })
-                }
-                {
-                    checkFifteens(fifteen) ?
-                        <div className={ Styles.game_over }>Congratulations!</div> : null
-                }
-            </div>
-        </div>
+        <>
+            {
+                !options ?
+                    <div className={ Styles.wrapper }>
+                        <div>
+                            <ButtonBack/>
+                            <ButtonOptions onShowOptions={ onShowOptions } text={ 'Options' }/>
+                        </div>
+                        <div className={ Styles.header }>
+                            <div className={ Styles.restart_wrap }>
+                                <div className={ Styles.restart_btn }
+                                     onClick={ onRestart }
+                                >
+                                    Restart
+                                </div>
+                                <ButtonSound nameGame={ history.location.pathname }/>
+                            </div>
+                            <div className={ Styles.counter_wrap }>
+                                <div className={ Styles.counter }>
+                                    Количество ходов: <span className={ Styles.counter_total }>{ counter }</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={ Styles.container }>
+                            {
+                                fifteen.map((item, id) => {
+                                    return item !== 0 ? item === animate ?
+                                        <Bounce>
+                                            <div key={ item}
+                                                 className={ Styles.cell }
+                                                 style={ item === id + 1 ? trueCell : null }
+                                                 onClick={ onMove(item, id)}
+                                            >{ item }</div>
+                                        </Bounce> :
+                                        <div key={ item}
+                                             className={ Styles.cell }
+                                             style={ item === id + 1 ? trueCell : null }
+                                             onClick={ onMove(item, id)}
+                                        >{ item }</div> :
+                                        <div className={ `${Styles.cell} ${Styles.cell_zero}`} key={ item }/>;
+                                })
+                            }
+                            {
+                                checkFifteens(fifteen) ?
+                                    <div className={ Styles.game_over }>Congratulations!</div> : null
+                            }
+                        </div>
+                    </div> : <Options nameGame={ history.location.pathname } textButton={ 'Назад' } onShowOptions={ onShowOptions }/>
+            }
+        </>
     );
 };
 

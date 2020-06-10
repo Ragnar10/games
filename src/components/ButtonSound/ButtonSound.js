@@ -19,7 +19,7 @@ import { setImages } from '../../utils/helperFunctions';
 
 const ButtonSound = ({nameGame}) => {
 
-    const [play, setPlay] = useState();
+    const [play, setPlay] = useState(false);
 
     useEffect(() => {
 
@@ -39,8 +39,8 @@ const ButtonSound = ({nameGame}) => {
         <>
             <div className={ Styles.sound_btn }
                  style={ play ? setImages(soundOn, 'cover') : setImages(soundOff, 'cover') }
-                 onClick={ onPlayMusic }>
-            </div>
+                 onClick={ onPlayMusic }
+            />
             <div className={Styles.range}>
                 <input type={'range'}
                        name={'volume'}

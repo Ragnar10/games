@@ -1,0 +1,50 @@
+.options_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    min-height: 300px;
+    padding: 10px;
+    margin: 20px auto;
+    border: 1px solid #000;
+    background-color: papayawhip;
+    box-sizing: border-box;
+}
+.options_controls, .options_missions {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    color: #212121;
+}
+.options_header {
+    font-size: 22px;
+    font-weight: bold;
+    align-self: center;
+}
+.options_item {
+    align-self: flex-start;
+}
+
+@media (max-width: 426px) {
+    .options_wrapper {
+        width: 300px;
+    }
+    .options_controls, .options_missions {
+        font-size: 14px;
+    }
+    .options_header {
+        font-size: 16px;
+    }
+}
+@media (min-width: 426px) and (max-width: 768px) {
+
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+@media (min-width: 1024px) and (max-width: 1224px) {
+
+}
+@media (min-width: 1224px) and (max-width: 1440px) {
+
+}
